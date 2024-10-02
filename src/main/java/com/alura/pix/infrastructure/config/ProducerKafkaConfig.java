@@ -22,7 +22,7 @@ public class ProducerKafkaConfig {
     private String bootstrapAddress;
 
     @Bean
-    public ProducerFactory<String, PixDto> producerFactory() {
+    public ProducerFactory<String, String> producerFactory() {
         Map<String, Object> configProps = new HashMap<>();
 
         configProps.put(
@@ -44,7 +44,7 @@ public class ProducerKafkaConfig {
     }
 
     @Bean
-    public KafkaTemplate<String, PixDto> kafkaTemplate() {
+    public KafkaTemplate<String, String> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
     }
 }
