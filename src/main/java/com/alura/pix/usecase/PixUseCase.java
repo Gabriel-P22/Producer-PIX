@@ -18,7 +18,10 @@ public class PixUseCase {
 
   public PixDto savePix(PixDto pixDto) {
     repository.save(Pix.toEntity(pixDto));
+
     kafkaTemplate.send("pix-topic", pixDto.getIdentifier(), pixDto);
+
+
     return pixDto;
   }
 }
