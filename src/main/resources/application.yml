@@ -1,6 +1,8 @@
 server:
   port: 8081
 spring:
+  kafka:
+    bootstrap-servers: localhost:8092
   jpa:
     properties:
       hibernate:
@@ -15,3 +17,4 @@ spring:
     password: postgres
   application:
     name: pix
+
